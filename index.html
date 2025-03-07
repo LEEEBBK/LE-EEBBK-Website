@@ -1,303 +1,528 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE EEBBK | LE EEBBK团队</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* 基础样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: #2d3439;
-            background: #f8f9fa;
-        }
-
-        :root {
-            --primary: #2A5C82;
-            --secondary: #5DA399;
-            --accent: #FF7E67;
-            --light: #f8f9fa;
-        }
-
-        /* 导航栏 */
-        .navbar {
-            background: rgba(255,255,255,0.95);
-            padding: 1.2rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: flex-end;
-            list-style: none;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-links a {
-            color: var(--primary);
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            border-radius: 8px;
-        }
-
-        .nav-links a:hover {
-            background: rgba(var(--primary), 0.05);
-        }
-
-        /* 首页横幅 */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, rgba(42,92,130,0.9) 0%, rgba(93,163,153,0.9) 100%),
-                        url('pattern.svg') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 120px 2rem 2rem;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        /* 内容区块 */
-        .section {
-            padding: 6rem 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2.5rem;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent);
-            margin: 1rem auto;
-        }
-
-        /* 团队成员 */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .member-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-        }
-
-        .member-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
-            font-weight: 300;
-        }
-
-        .member-card h3 {
-            color: var(--primary);
-            margin: 1rem 0 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .position {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        /* 项目展示 */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: rgba(var(--accent), 0.1);
-            color: var(--accent);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                justify-content: center;
-            }
-
-            .team-grid,
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .member-card {
-                padding: 1.5rem;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <title>LEX EEBBK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="LEX.png">
 </head>
 <body>
-    <!-- 导航 -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#home">首页</a></li>
-            <li><a href="#team">团队</a></li>
-            <li><a href="#projects">项目</a></li>
-            <li><a href="#contact">联系</a></li>
-        </ul>
-    </nav>
-
-    <!-- 首页横幅 -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>专业步步高解除安装限制</h1>
-            <p>LE EEBBK</p>
-        </div>
-    </section>
-
-    <!-- 团队成员 -->
-    <section class="section" id="team">
-        <h2 class="section-title">核心团队成员</h2>
-        <div class="team-grid">
-            <div class="member-card">
-                <div class="avatar">Bai</div>
-                <h3>白</h3>
-                <p class="position">LE EEBBK创建者</p>
-                <p>项目维护者</p>
-                <p>创立LE EEBBK</p>
+    <header>
+        <nav>
+            <div class="logo">LEX EEBBK</div>
+            <div class="nav-right">
+                <button class="about-btn">关于</button>
             </div>
-            <div class="member-card">
-                <div class="avatar">H</div>
-                <h3>huang1057</h3>
-                <p class="position">程序编写</p>
-                <p>网页设计</p>
-                <p>技术支持</p>
-            </div>
-            <div class="member-card">
-                <div class="avatar">S</div>
-                <h3>steam</h3>
-                <p class="position">程序编写者</p>
-                <p>网页维护</p>
-                <p>项目维护</p>
-            </div>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- 项目展示 -->
-    <section class="section" id="projects">
-        <h2 class="section-title">项目列表</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-content">
-                    <span class="project-tag">LEX Toolbox</span>
-                    <h3>EEBBK工具箱</h3>
-                    <p>暂未发布，正在开发</p>
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>主页</h2>
+                <p>本站提供步步高家教机解除第三方软件安装限制工具下载</p>
+                <div class="buttons">
+                    <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">QQ群</a>
+                    <button class="toolbox-btn">Toolbox</button>
                 </div>
-            </div>
-            <div class="project-card">
-                <div class="project-content">
-                    <span class="project-tag">LEX Toolbox(Android)</span>
-                    <h3>Android工具箱</h3>
-                    <p>正在开发ing</p>
+            </section>
+
+            <section class="section">
+                <h2>公告</h2>
+                <div class="announcement">
+                    <p>我们正在开发以下工具：</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>LE.AI</li>
+                        <li>LE TOOLBOX</li>
+                        <li>LEADB-PATH</li>
+                    </ul>
+                    <div class="fake-accounts"></div>
                 </div>
+            </section>
+
+            <section class="section">
+                <h2>维护人员</h2>
+                <div class="staff-list">
+                    <div class="staff-item">
+                        <img src="bai.jpg" alt="白" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3>白</h3>
+                            <p class="staff-role">• 项目维护 • 网页编写</p>
+                        </div>
+                    </div>
+
+                    <div class="staff-item">
+                        <img src="steam.jpg" alt="steam" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3>steam</h3>
+                            <p class="staff-role">• 网页编写</p>
+                        </div>
+                    </div>
+
+                    <div class="staff-item">
+                        <img src="huang1057.jpg" alt="huang1057" class="staff-avatar">
+                        <div class="staff-info">
+                            <h3>huang1057</h3>
+                            <p class="staff-role">• 项目支持 • 项目开发</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>团队声明</h2>
+                <div class="statement">
+                    <div class="statement-item">
+                        <h3>关于我们</h3>
+                        <p>LEX EEBBK 是一个专注于步步高家教机系统优化的开发团队。我们致力于为用户提供安全、可靠的系统工具。</p>
+                    </div>
+                    
+                    <div class="statement-item">
+                        <h3>免责声明</h3>
+                        <p>1. 本团队提供的所有工具均为免费使用，严禁任何形式的商业用途。</p>
+                        <p>2. 用户在使用过程中造成的任何损失，本团队不承担任何责任。</p>
+                        <p>3. 请在法律允许的范围内使用我们的工具，不得用于非法用途。</p>
+                    </div>
+
+                    <div class="statement-item">
+                        <h3>版权声明</h3>
+                        <p>1. 本团队的所有工具采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。</p>
+                        <p>2. 转载或分享请注明出处，保留原作者信息。</p>
+                        <p>3. 禁止对工具进行任何形式的修改或二次分发。</p>
+                    </div>
+
+                    <div class="statement-item">
+                        <h3>联系方式</h3>
+                        <p>如有问题请通过QQ群联系我们，我们会及时回复并解决您的问题。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>LE.AI 体验</h2>
+                <div class="buttons" style="margin-bottom: 1rem;">
+                    <button class="download-btn" id="leaiDownloadBtn">下载 LE.AI</button>
+                </div>
+                <div class="ai-chat">
+                    <div class="chat-messages" id="chatMessages"></div>
+                    <div class="chat-input">
+                        <textarea id="userInput" placeholder="输入您的问题..." rows="3"></textarea>
+                        <button id="sendBtn" class="send-btn">发送</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>支持机型</h2>
+                <div class="device-list">
+                    <div class="device-item">
+                        <img src="images/s3pro.png" alt="S3 Pro" class="device-icon">
+                        <div class="device-info">
+                            <h3>S3 Pro<br>S3 Prow</h3>
+                            <p class="status warning">• 可进群申请测试</p>
+                        </div>
+                        <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">QQ群</a>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/s3pros.png" alt="S3 Pros" class="device-icon">
+                        <div class="device-info">
+                            <h3>S3 Pros</h3>
+                            <p class="status success">• 工具版本：V7.3</p>
+                        </div>
+                        <button class="download-btn">下载</button>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/s5.png" alt="S5" class="device-icon">
+                        <div class="device-info">
+                            <h3>S5</h3>
+                            <p class="status success">• 工具版本：V12.3</p>
+                        </div>
+                        <button class="download-btn">下载</button>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/s5pro.png" alt="S5 Pro" class="device-icon">
+                        <div class="device-info">
+                            <h3>S5 Pro</h3>
+                            <p class="status error">• 工具维护中，暂未开放</p>
+                        </div>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/s6.png" alt="S6" class="device-icon">
+                        <div class="device-info">
+                            <h3>S6</h3>
+                            <p class="status success">• 工具版本：V6.3</p>
+                        </div>
+                        <button class="download-btn">下载</button>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/s1w.png" alt="S1W" class="device-icon">
+                        <div class="device-info">
+                            <h3>S1W<br>X1</h3>
+                            <p class="status success">• 工具版本：V7.2</p>
+                        </div>
+                        <button class="download-btn">下载</button>
+                    </div>
+
+                    <div class="device-item">
+                        <img src="images/h9a.png" alt="H9A Series" class="device-icon">
+                        <div class="device-info">
+                            <h3>H9A H9S<br>H8A H8SM H20<br>S1A S1Pro</h3>
+                            <p class="status warning">• 可进群申请测试</p>
+                        </div>
+                        <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">QQ群</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="close-btn">&times;</button>
+            <h3>下载说明</h3>
+            <div class="modal-content"></div>
+            <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">加入QQ群获取资源！</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="toolboxModal">
+        <div class="modal">
+            <button class="close-btn" id="toolboxCloseBtn">&times;</button>
+            <h3>LE TOOLBOX</h3>
+            <div class="modal-content">
+                <p><strong>工具介绍</strong></p>
+                <p>LE TOOLBOX 是一款多功能工具箱，专为步步高家教机用户设计。它集成了多种实用功能，帮助您更好地使用设备。</p>
+                
+                <p><strong>主要功能</strong></p>
+                <ul class="feature-list">
+                    <li>系统优化 - 清理系统垃圾，提升运行速度</li>
+                    <li>应用管理 - 批量安装/卸载应用</li>
+                    <li>文件管理 - 高效管理设备文件</li>
+                    <li>备份还原 - 备份重要数据</li>
+                    <li>系统工具 - 提供多种系统维护工具</li>
+                </ul>
+                
+                <p><strong>版本信息</strong></p>
+                <p>当前版本：V1.0.0 Beta</p>
+                <p>适用系统：全系列步步高家教机</p>
+                
+                <p><strong>开发进度</strong></p>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 65%;">65%</div>
+                </div>
+                <p class="progress-info">预计发布时间：2026年春季</p>
+            </div>
+            <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">加入QQ群获取最新进展！</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="aboutModal">
+        <div class="modal">
+            <button class="close-btn" id="aboutCloseBtn">&times;</button>
+            <h3>关于 LEX EEBBK</h3>
+            <div class="modal-content">
+                <p><strong>项目信息</strong></p>
+                <p>LEX EEBBK 是一个专注于步步高家教机优化的开源项目。我们致力于为用户提供更好的使用体验。</p>
+                
+                <p><strong>联系方式</strong></p>
+                <ul class="contact-list">
+                    <li>作者QQ：2303004508</li>
+                    <li>交流群：996257580</li>
+                </ul>
+                
+                <p><strong>版权信息</strong></p>
+                <p>© 2024 LEX EEBBK. 保留所有权利。</p>
+                <p>本项目采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 页脚 -->
-    <footer style="background: var(--primary); color: white; text-align: center; padding: 3rem 5%;">
-        <p style="opacity: 0.8;">© 2025 LE EEBBK. All rights reserved.</p>
-    </footer>
+    <div class="modal-overlay" id="leaiModal">
+        <div class="modal">
+            <button class="close-btn" id="leaiCloseBtn">&times;</button>
+            <h3>LE.AI 下载</h3>
+            <div class="modal-content">
+                <p><strong>工具介绍</strong></p>
+                <p>LE.AI 是一款基于 GPT 的智能对话工具，专为步步高家教机用户设计。它可以帮助您更好地学习和使用设备。</p>
+                
+                <p><strong>主要功能</strong></p>
+                <ul class="feature-list">
+                    <li>智能对话 - 自然语言交互</li>
+                    <li>学习辅助 - 解答学习问题</li>
+                    <li>设备帮助 - 解决使用疑难</li>
+                    <li>离线使用 - 无需联网即可对话</li>
+                </ul>
+                
+                <p><strong>版本信息</strong></p>
+                <p>当前版本：V1.0.0</p>
+                <p>适用系统：全系列步步高家教机</p>
+            </div>
+            <a href="https://qm.qq.com/q/8n1tydJ6cE" class="qq-btn" target="_blank">加入QQ群获取资源！</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deviceInfo = {
+                'S3 Pros': {
+                    version: 'V7.3',
+                    description: `
+                        <strong>工具基本信息</strong><br><br>
+                        工具版本：V7.3<br>
+                        适用版本：V1.2.1<br><br>
+                        <strong>知识共享许可协议</strong><br>
+                        本作品采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。<br><br>
+                        工具永久免费公开下载，禁止倒卖<br><br>
+                        如果您转载本团队制作的工具，请保留原作者信息并维护文件完整性
+                    `
+                },
+                'S5': {
+                    version: 'V12.3',
+                    description: `
+                        <strong>工具基本信息</strong><br><br>
+                        工具版本：V12.3<br>
+                        适用版本：V1.3.0~V1.4.8<br><br>
+                        <strong>知识共享许可协议</strong><br>
+                        本作品采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。<br><br>
+                        工具永久免费公开下载，禁止倒卖<br><br>
+                        如果您转载本团队制作的工具，请保留原作者信息并维护文件完整性
+                    `
+                },
+                'S6': {
+                    version: 'V6.3',
+                    description: `
+                        <strong>工具基本信息</strong><br><br>
+                        工具版本：V6.3<br>
+                        适用版本：V2.1.0<br><br>
+                        <strong>知识共享许可协议</strong><br>
+                        本作品采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。<br><br>
+                        工具永久免费公开下载，禁止倒卖<br><br>
+                        如果您转载本团队制作的工具，请保留原作者信息并维护文件完整性
+                    `
+                },
+                'S1W': {
+                    version: 'V7.2',
+                    description: `
+                        <strong>工具基本信息</strong><br><br>
+                        工具版本：V7.2<br><br>
+                        <strong>知识共享许可协议</strong><br>
+                        本作品采用知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议进行许可。<br><br>
+                        工具永久免费公开下载，禁止倒卖<br><br>
+                        如果您转载本团队制作的工具，请保留原作者信息并维护文件完整性
+                    `
+                }
+            };
+
+            const modal = document.querySelector('.modal-overlay');
+            const closeBtn = document.querySelector('.close-btn');
+            const modalContent = document.querySelector('.modal-content');
+
+            document.querySelectorAll('.download-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const deviceName = this.closest('.device-item').querySelector('h3').textContent;
+                    let info;
+                    if (deviceName.includes('S1W')) {
+                        info = deviceInfo['S1W'];
+                    } else {
+                        info = deviceInfo[deviceName.split('\n')[0]];
+                    }
+                    if (info) {
+                        modalContent.innerHTML = `
+                            <p><strong>${deviceName.replace('\n', ' / ')}</strong></p>
+                            <p>当前版本：${info.version}</p>
+                            <p>${info.description}</p>
+                        `;
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            const API_KEY = 'sk-L123U7FWLwcz5lnrF9F2A35d1aEa40D19a8245408cAf0e4c';
+            const API_URL = 'https://xiaoyu1314.top/v1/chat/completions';
+
+            const chatMessages = document.getElementById('chatMessages');
+            const userInput = document.getElementById('userInput');
+            const sendBtn = document.getElementById('sendBtn');
+
+            const MAX_MESSAGES_PER_HOUR = 4;
+            let messageCount = 0;
+            let lastResetTime = Date.now();
+
+            function addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+                messageDiv.textContent = content;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function checkMessageLimit() {
+                const now = Date.now();
+                if (now - lastResetTime >= 3600000) {
+                    messageCount = 0;
+                    lastResetTime = now;
+                }
+
+                if (messageCount >= MAX_MESSAGES_PER_HOUR) {
+                    const minutesUntilReset = Math.ceil((3600000 - (now - lastResetTime)) / 60000);
+                    throw new Error(`已达到每小时消息限制（${MAX_MESSAGES_PER_HOUR}条），请等待${minutesUntilReset}分钟后再试。`);
+                }
+            }
+
+            async function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                try {
+                    checkMessageLimit();
+
+                    addMessage(message, true);
+                    userInput.value = '';
+                    sendBtn.disabled = true;
+
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${API_KEY}`
+                        },
+                        body: JSON.stringify({
+                            model: 'gpt-3.5-turbo',
+                            messages: [{ role: 'user', content: message }]
+                        }),
+                        mode: 'cors'
+                    });
+
+                    const data = await response.json();
+                    addMessage(data.choices[0].message.content);
+                    
+                    messageCount++;
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    addMessage(error.message || '抱歉，发生了错误，请稍后再试。');
+                }
+
+                sendBtn.disabled = false;
+            }
+
+            function updateRemainingMessages() {
+                const now = Date.now();
+                if (now - lastResetTime >= 3600000) {
+                    messageCount = 0;
+                    lastResetTime = now;
+                }
+                const remaining = MAX_MESSAGES_PER_HOUR - messageCount;
+                const minutesUntilReset = Math.ceil((3600000 - (now - lastResetTime)) / 60000);
+                
+                const oldLimitInfo = chatMessages.querySelector('.limit-info');
+                if (oldLimitInfo) {
+                    oldLimitInfo.remove();
+                }
+                
+                const limitInfo = document.createElement('div');
+                limitInfo.className = 'limit-info';
+                limitInfo.textContent = `剩余对话次数：${remaining}次 (${minutesUntilReset}分钟后重置)`;
+                chatMessages.appendChild(limitInfo);
+            }
+
+            updateRemainingMessages();
+
+            sendBtn.addEventListener('click', async () => {
+                await sendMessage();
+                updateRemainingMessages();
+            });
+
+            userInput.addEventListener('keypress', async (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    await sendMessage();
+                    updateRemainingMessages();
+                }
+            });
+
+            const toolboxBtn = document.querySelector('.toolbox-btn');
+            const toolboxModal = document.getElementById('toolboxModal');
+            const toolboxCloseBtn = document.getElementById('toolboxCloseBtn');
+
+            toolboxBtn.addEventListener('click', () => {
+                toolboxModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            toolboxCloseBtn.addEventListener('click', () => {
+                toolboxModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            toolboxModal.addEventListener('click', (e) => {
+                if (e.target === toolboxModal) {
+                    toolboxModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            const aboutBtn = document.querySelector('.about-btn');
+            const aboutModal = document.getElementById('aboutModal');
+            const aboutCloseBtn = document.getElementById('aboutCloseBtn');
+
+            aboutBtn.addEventListener('click', () => {
+                aboutModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            aboutCloseBtn.addEventListener('click', () => {
+                aboutModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            aboutModal.addEventListener('click', (e) => {
+                if (e.target === aboutModal) {
+                    aboutModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            const leaiDownloadBtn = document.getElementById('leaiDownloadBtn');
+            const leaiModal = document.getElementById('leaiModal');
+            const leaiCloseBtn = document.getElementById('leaiCloseBtn');
+
+            leaiDownloadBtn.addEventListener('click', () => {
+                leaiModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            leaiCloseBtn.addEventListener('click', () => {
+                leaiModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            leaiModal.addEventListener('click', (e) => {
+                if (e.target === leaiModal) {
+                    leaiModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
-</html>
+</html> 
